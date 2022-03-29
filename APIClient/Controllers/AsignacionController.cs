@@ -3,6 +3,7 @@ using APIClient.Infrastructure.Data.Entities;
 using APIClient.Infrastructure.Data.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 
 namespace APIClient.Controllers
 {
@@ -24,19 +25,30 @@ namespace APIClient.Controllers
         }
 
         // GET api/<AsignacionController>/5
-        [HttpGet("{id}"]
-        public async Task<Asignacion> GetAsync( string id)
+
+        [HttpGet("{id}", Name = "GetAsignacionAsync")]
+        public async Task<ActionResult<Asignacion>> GetAsignacionByIdAsync(Guid id)
         {
-            return await _asignacionRepository.GetAsignacionByIdAsync(id);
+            var clsasignacion = await _asignacionRepository.GetAsignacionByIdAsync(id);
+           // return await _asignacionRepository.GetAsignacionByIdAsync(id);
+
+            if (clsasignacion == null)
+            {
+                return NotFound();
+            }
+
+            return clsasignacion;
         }
 
+     
 
-        // GET api/<AsignacionMatriculaController>/5
-        [HttpGet("{matricula}", Name = "GetMatricula")]
-        public async Task<Asignacion> GetMatriculaAsync( string matricula)
-        {
-            return await _asignacionRepository.GetAsignacionByMatriculaAsync(matricula);
-        }
+
+        //// GET api/<AsignacionMatriculaController>/5
+        //[HttpGet("{matricula}", Name = "GetMatricula")]
+        //public async Task<Asignacion> GetMatriculaAsync( string matricula)
+        //{
+        //    return await _asignacionRepository.GetAsignacionByMatriculaAsync(matricula);
+        //}
 
 
         // POST api/<AsignacionController>
@@ -45,12 +57,12 @@ namespace APIClient.Controllers
         public async Task<IActionResult> PostAsync([FromBody] Asignacion asignacion)
         {
             var result = await _asignacionRepository.InsertAsync(asignacion);
-            return CreatedAtRoute("GetAsignacion", new { id = result.id }, result);
+            return CreatedAtRoute("GetAsignacionAsync", new { id = result.Id }, result);
         }
 
         // PUT api/<AsignacionController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAsync(string id, [FromBody] Asignacion asignacion)
+        public async Task<IActionResult> PutAsync(Guid id, [FromBody] Asignacion asignacion)
         {
             var result = await _asignacionRepository.UpdateAsync(id, asignacion);
             return Ok(result);
@@ -60,7 +72,7 @@ namespace APIClient.Controllers
         // DELETE api/<AsignacionController>/5
         [HttpDelete("{id}")]
         //[Route("api/Asignacion/Delete/{id}")]
-        public async Task<IActionResult> DeleteAsync(string id)
+        public async Task<IActionResult> DeleteAsync(Guid id)
         {
             var result = await _asignacionRepository.DeleteAsync(id);
             if (result == null)

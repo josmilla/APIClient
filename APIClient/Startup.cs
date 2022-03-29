@@ -59,6 +59,7 @@ namespace APIClient
             app.UseAuthorization();
 
             context.EnsureSeeDataForContext();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

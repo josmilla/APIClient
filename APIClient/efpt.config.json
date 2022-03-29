@@ -1,0 +1,63 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "BD_ASIGNContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "Infrastructure\\Data\\Contexts",
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "APIClient",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[APLICATIVO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CARGA]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PERIODO]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[PORCENTAJE_ASIGNACION]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ROL]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[SQUAD]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[TRIBUCOE]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "086455e39f8a.BD_ASIGN",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

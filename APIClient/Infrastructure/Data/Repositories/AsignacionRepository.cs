@@ -4,6 +4,7 @@ using APIClient.Infrastructure.Data.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System;
 
 namespace APIClient.Infrastructure.Data.Repositories
 {
@@ -21,9 +22,9 @@ namespace APIClient.Infrastructure.Data.Repositories
         {
             return await _dbSet.ToListAsync();
         }
-        public async Task<Asignacion> GetAsignacionByIdAsync(string id)
+        public async Task<Asignacion> GetAsignacionByIdAsync(Guid id)
         {
-            return await _dbSet.Where(p => p.id == id).FirstOrDefaultAsync();
+            return await _dbSet.Where(p => p.Id == id).FirstOrDefaultAsync();
         }
 
         public async Task<Asignacion> GetAsignacionByMatriculaAsync(string matricula)
@@ -37,7 +38,7 @@ namespace APIClient.Infrastructure.Data.Repositories
             await _context.SaveChangesAsync();
             return asignacion;
         }
-        public async Task<Asignacion> UpdateAsync(string id, Asignacion asignacion)
+        public async Task<Asignacion> UpdateAsync(Guid id, Asignacion asignacion)
         {
             Asignacion asignacionToUpdate = await GetAsignacionByIdAsync(id);
             asignacionToUpdate.Matricula   = asignacion.Matricula;
@@ -56,7 +57,7 @@ namespace APIClient.Infrastructure.Data.Repositories
             return asignacionToUpdate;
         }
 
-        public async Task<Asignacion> DeleteAsync(string id)
+        public async Task<Asignacion> DeleteAsync(Guid id)
         {
             Asignacion asignacionToDelete = await GetAsignacionByIdAsync(id);
 

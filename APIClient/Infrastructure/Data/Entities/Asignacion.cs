@@ -6,7 +6,7 @@ namespace APIClient.Infrastructure.Data.Entities
     public partial class Asignacion
     {
       
-        public string id { get; set; }
+        public Guid Id { get; set; }
 
         
         public string Matricula { get; set; }
