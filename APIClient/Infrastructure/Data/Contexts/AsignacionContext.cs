@@ -18,7 +18,7 @@ namespace APIClient.Infrastructure.Data.Contexts
         public AsignacionContext(DbContextOptions<AsignacionContext> options)
             : base(options)
         {
-            Database.Migrate();
+          //  Database.Migrate();
         }
 
         public virtual DbSet<Aplicativo> Aplicativo { get; set; }

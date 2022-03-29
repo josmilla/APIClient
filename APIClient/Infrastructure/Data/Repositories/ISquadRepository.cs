@@ -8,9 +8,9 @@ namespace APIClient.Infrastructure.Data.Repositories
     public interface ISquadRepository
     {
         Task<Squad> DeleteAsync(int id);
-        Task<Squad> GetTribucoeByIdAsync(int id);
+        Task<Squad> GetSquadByIdAsync(int id);
                     
-        Task<List<Squad>> GetTribucoeAsync();
+        Task<List<Squad>> GetSquadAsync();
         Task<Squad> InsertAsync(Squad squad);
         Task<Squad> UpdateAsync(int id, Squad squad);
     }

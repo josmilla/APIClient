@@ -2,12 +2,14 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace APIClient.Infrastructure.Data.Entities
 {
 
     public partial class Aplicativo
     {
+        [Key]
         public int IdAplicativo { get; set; }
         public string CodAplicativo { get; set; }
         public string NombreAplicativo { get; set; }

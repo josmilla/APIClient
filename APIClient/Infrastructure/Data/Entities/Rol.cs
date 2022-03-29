@@ -2,11 +2,12 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
-
+using System.ComponentModel.DataAnnotations;
 namespace APIClient.Infrastructure.Data.Entities
 {
     public partial class Rol
     {
+        [Key]
         public int IdRol { get; set; }
         public string SqRol { get; set; }
         public string RolInsourcing { get; set; }

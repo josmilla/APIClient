@@ -12,6 +12,7 @@ namespace APIClient.Infrastructure.Data.Repositories
     {
         private AsignacionContext _context;
         private DbSet<Rol> _dbSet;
+         
         public RolRepository(AsignacionContext context)
         {
             _context = context;
@@ -37,32 +38,32 @@ namespace APIClient.Infrastructure.Data.Repositories
         }
         public async Task<Rol> UpdateAsync(int id, Rol rol)
         {
-            Rol actualizarToUpdate = await GetRolByIdAsync(id);
-            actualizarToUpdate.SqRol = rol.SqRol;
-            actualizarToUpdate.RolInsourcing = rol.RolInsourcing;
-            actualizarToUpdate.Especialidad = rol.Especialidad;
-            actualizarToUpdate.FechaRegistro = rol.FechaRegistro;
-            actualizarToUpdate.RolInsourcing = rol.RolInsourcing;
-            actualizarToUpdate.UsuarioRegistro = rol.UsuarioRegistro;
-            actualizarToUpdate.FechaModificacion = rol.FechaModificacion;
-            actualizarToUpdate.UsuarioModificacion = rol.UsuarioModificacion;
-            actualizarToUpdate.Estado = rol.Estado;
+            Rol rolactualizarToUpdate = await GetRolByIdAsync(id);
+            rolactualizarToUpdate.SqRol = rol.SqRol;
+            rolactualizarToUpdate.RolInsourcing = rol.RolInsourcing;
+            rolactualizarToUpdate.Especialidad = rol.Especialidad;
+            rolactualizarToUpdate.FechaRegistro = rol.FechaRegistro;
+            rolactualizarToUpdate.RolInsourcing = rol.RolInsourcing;
+            rolactualizarToUpdate.UsuarioRegistro = rol.UsuarioRegistro;
+            rolactualizarToUpdate.FechaModificacion = rol.FechaModificacion;
+            rolactualizarToUpdate.UsuarioModificacion = rol.UsuarioModificacion;
+            rolactualizarToUpdate.Estado = rol.Estado;
           
 
 
-            _dbSet.Update(actualizarToUpdate);
+            _dbSet.Update(rolactualizarToUpdate);
             await _context.SaveChangesAsync();
 
-            return actualizarToUpdate;
+            return rolactualizarToUpdate;
         }
 
         public async Task<Rol> DeleteAsync(int id)
         {
-            Rol eliminarToDelete = await GetRolByIdAsync(id);
+            Rol roleliminarToDelete = await GetRolByIdAsync(id);
 
-            _dbSet.Remove(eliminarToDelete);
+            _dbSet.Remove(roleliminarToDelete);
             await _context.SaveChangesAsync();
-            return eliminarToDelete;
+            return roleliminarToDelete;
         }
     }
 }

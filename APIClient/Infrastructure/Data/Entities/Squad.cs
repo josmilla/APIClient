@@ -2,11 +2,13 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace APIClient.Infrastructure.Data.Entities
 {
     public partial class Squad
     {
+        [Key]
         public int IdSquad { get; set; }
         public string CodSquad { get; set; }
         public string NombreSquad { get; set; }

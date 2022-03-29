@@ -39,6 +39,7 @@ namespace APIClient
             string connectionString = Configuration.GetConnectionString("AsigConnectionString");
             services.AddDbContext<AsignacionContext>(o => o.UseSqlServer(connectionString));
             services.AddScoped<IAsignacionRepository, AsignacionRepository>();
+            services.AddScoped<IRolRepository, RolRepository>();
 
         }
 

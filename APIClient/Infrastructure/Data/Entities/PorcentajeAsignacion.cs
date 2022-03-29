@@ -2,11 +2,13 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace APIClient.Infrastructure.Data.Entities
 {
     public partial class PorcentajeAsignacion
     {
+        [Key]
         public int IdPorcentajeAsignacion { get; set; }
         public int? IdCarga { get; set; }
         public int? IdPeriodo { get; set; }

@@ -8,46 +8,46 @@ using System;
 
 namespace APIClient.Infrastructure.Data.Repositories
 {
-    public class TribucoeRepository : ITribucoeRepository
+    public class SquadRepository : ISquadRepository
     {
         private AsignacionContext _context;
-        private DbSet<Tribucoe> _dbSet;
-        public TribucoeRepository(AsignacionContext context)
+        private DbSet<Squad> _dbSet;
+        public SquadRepository(AsignacionContext context)
         {
             _context = context;
-            _dbSet = context.Set<Tribucoe>();
+            _dbSet = context.Set<Squad>();
         }
 
-        public async Task<List<Tribucoe>> GetTribucoeAsync()
+        public async Task<List<Squad>> GetSquadAsync()
         {
             return await _dbSet.ToListAsync();
         }
-        public async Task<Tribucoe> GetTribucoeByIdAsync(int id)
+        public async Task<Squad> GetSquadByIdAsync(int id)
         {
-            return await _dbSet.Where(p => p.IdTribucoe == id).FirstOrDefaultAsync();
+            return await _dbSet.Where(p => p.IdSquad == id).FirstOrDefaultAsync();
         }
 
         
 
-        public async Task<Tribucoe> InsertAsync(Tribucoe tribucoe)
+        public async Task<Squad> InsertAsync(Squad squad)
         {
-            _dbSet.Add(tribucoe);
+            _dbSet.Add(squad);
             await _context.SaveChangesAsync();
-            return tribucoe;
+            return squad;
         }
-        public async Task<Tribucoe> UpdateAsync(int id, Tribucoe tribucoe)
+        public async Task<Squad> UpdateAsync(int id, Squad squad)
         {
-            
-            Tribucoe actualizarToUpdate = await GetTribucoeByIdAsync(id);
+
+            Squad actualizarToUpdate = await GetSquadByIdAsync(id);
           
-            actualizarToUpdate.NombreTribucoe = tribucoe.NombreTribucoe;
-            actualizarToUpdate.CategoriaTribucoe = tribucoe.CategoriaTribucoe;
-            actualizarToUpdate.IdSquad = tribucoe.IdSquad;
-            actualizarToUpdate.FechaRegistro = tribucoe.FechaRegistro;
-            actualizarToUpdate.UsuarioRegistro = tribucoe.UsuarioRegistro;
-            actualizarToUpdate.FechaModificacion = tribucoe.FechaModificacion;
-            actualizarToUpdate.UsuarioModificacion = tribucoe.UsuarioModificacion;
-            actualizarToUpdate.Estado = tribucoe.Estado;
+            actualizarToUpdate.CodSquad = squad.CodSquad;
+            actualizarToUpdate.NombreSquad = squad.NombreSquad;
+            actualizarToUpdate.IdSquad = squad.IdSquad;
+            actualizarToUpdate.FechaRegistro = squad.FechaRegistro;
+            actualizarToUpdate.UsuarioRegistro = squad.UsuarioRegistro;
+            actualizarToUpdate.FechaModificacion = squad.FechaModificacion;
+            actualizarToUpdate.UsuarioModificacion = squad.UsuarioModificacion;
+            actualizarToUpdate.Estado = squad.Estado;
           
 
 
@@ -57,9 +57,9 @@ namespace APIClient.Infrastructure.Data.Repositories
             return actualizarToUpdate;
         }
 
-        public async Task<Tribucoe> DeleteAsync(int id)
+        public async Task<Squad> DeleteAsync(int id)
         {
-            Tribucoe eliminarToDelete = await GetTribucoeByIdAsync(id);
+            Squad eliminarToDelete = await GetSquadByIdAsync(id);
 
             _dbSet.Remove(eliminarToDelete);
             await _context.SaveChangesAsync();

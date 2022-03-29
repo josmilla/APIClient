@@ -85,6 +85,22 @@ namespace APIClient.Infrastructure.Data.Contexts
                 FechaRegistro = DateTime.Now
             });
 
+            List<Rol> Roles = new List<Rol>();
+          
+                Roles.Add(new Rol
+                        {
+                            
+                                IdRol = 1,
+                                SqRol = "DEVELOPER",
+                                RolInsourcing = "DEV",
+                                Especialidad ="NET",
+                                FechaRegistro =DateTime.Now,
+                                UsuarioRegistro ="U20200",
+                                FechaModificacion =DateTime.Now,
+                                UsuarioModificacion ="U20300",
+                                Estado = true
+                          }); 
+            
             context.Asignacion.AddRange(asignaciones);
            
             context.SaveChanges();
